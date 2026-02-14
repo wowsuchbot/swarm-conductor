@@ -1,0 +1,80 @@
+{
+  "name": "swarm-conductor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Distributed agent orchestration system with mobile control - OpenClaw agents, master heartbeat, and team-based billing",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wowsuchbot/swarm-conductor.git"
+  },
+  "author": "wowsuchbot",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0",
+  "scripts": {
+    "dev": "pnpm --parallel --stream run dev",
+    "build": "pnpm --recursive run build",
+    "test": "pnpm --recursive run test",
+    "test:watch": "pnpm --recursive run test:watch",
+    "test:coverage": "pnpm --recursive run test:coverage",
+    "lint": "pnpm --recursive run lint",
+    "lint:fix": "pnpm --recursive run lint --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "type-check": "pnpm --recursive run type-check",
+    "clean": "pnpm --recursive run clean && rm -rf node_modules",
+    "prepare": "husky install",
+    "db:generate": "pnpm --filter @swarm/api db:generate",
+    "db:migrate": "pnpm --filter @swarm/api db:migrate",
+    "db:seed": "pnpm --filter @swarm/api db:seed",
+    "db:studio": "pnpm --filter @swarm/api db:studio",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:reset": "docker-compose down -v && docker-compose up -d"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "typescript": "^5.3.3"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "keywords": [
+    "agents",
+    "ai",
+    "openclaw",
+    "orchestration",
+    "swarm",
+    "mobile",
+    "react-native",
+    "expo",
+    "typescript",
+    "nodejs",
+    "postgresql",
+    "redis",
+    "websocket"
+  ]
+}
