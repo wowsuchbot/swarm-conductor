@@ -1,1 +1,1 @@
-test content
+# This file has been superseded
